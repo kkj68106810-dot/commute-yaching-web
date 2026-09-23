@@ -1,37 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚆 Commute & Yaching Simulator - Web Frontend
+> 首都圏移住者のための家賃・通勤シミュレーター (B2C Web UI)
 
-## Getting Started
+## 1. プロジェクト概要 (Project Overview)
+- **ターゲット (Target):** 東京・大阪など大都市圏への移住を検討しているITエンジニアおよび会社員
+- **主な機能 (Key Features):** 勤務地と希望家賃を入力すると、最適な居住エリア（駅）を地図上に推薦し、家賃相場と通勤時間をシミュレーションします。
 
-First, run the development server:
+## 2. 技術スタックと採用理由 (Tech Stack & Why This Tech?)
+最先端のフロントエンド・エコシステムを導入し、レンダリング性能と開発生産性を極大化しました。
+
+- **Next.js 16.3.5 (App Router):** サーバーサイドレンダリング(SSR)による初期ロード速度の向上と、強力なSEO最適化のために採用。
+- **React 19.2.8:** 最新のReact CompilerやAction等の機能を活用し、状態管理と非同期処理のボイラープレートを最小化。
+- **Tailwind CSS v4:** ゼロコンフィグ(Zero-config)でビルド速度が劇的に向上した最新のCSSフレームワークを採用し、スタイリングを最適化。
+- **TypeScript 5.x:** 厳格な型チェックにより、バックエンドAPI(Spring Boot)とのデータ通信時のランタイムエラーを事前に遮断。
+
+## 3. UI/UX & パフォーマンス最適化 (UI/UX & Optimization)
+フロントエンドならではの技術的課題を以下のように解決しました。
+
+- **URL Query Parametersを用いた状態管理:**
+  複雑な検索条件（家賃上限、通勤時間、乗り換え回数など）をURLのQuery Parameterと同期させました[cite: 5]。これにより、ユーザーがページをリフレッシュしたり、検索結果URLを共有しても状態が完全に維持されるUXを実現しました[cite: 5]。
+- **i18n 多言語対応:**
+  韓国語・日本語のリアルタイム切り替え機能を実装し、グローバル対応力を確保しました。
+- **地図データのレンダリング最適化:**
+  大量の駅マーカー(x, y 座標)を地図上に描画する際、Reactのメモ化(Memoization)を活用し、再レンダリングによるブラウザのフレーム低下を防止しました。
+
+## 4. 実行手順 (Getting Started)
+ローカル環境での実行方法です。フロントエンドは標準ポートである `3000` を使用します。
 
 ```bash
+# 1. 依存パッケージのインストール
+npm install
+
+# 2. ローカル開発サーバーの起動 (Port: 3000)
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# commute-yaching-web
